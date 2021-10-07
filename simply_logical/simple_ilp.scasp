@@ -1,0 +1,33 @@
+
+%%% background
+bird(tweety).            
+bird(polly).
+has_feathers(tweety).    
+has_beak(polly).
+
+%%% hypothesis
+flies(X,h0):-true.
+flies(X,h1):-bird(X).
+flies(X,h2):-has_feathers(X).
+flies(X,h3):-has_beak(X).
+flies(X,h4):-bird(X),has_feathers(X).
+flies(X,h5):-bird(X),has_beak(X).
+flies(X,h6):-has_feathers(X),has_beak(X).
+flies(X,h7):-bird(X),has_feathers(X),has_beak(X).
+
+%%% find all X covered by hypothesis
+findall_flies_h(All,Out):- 
+    flies(Flyer,h1), 
+    not member(Flyer,Acc), 
+    findall_flies_h([Flyer|Acc],Out).
+
+findall_flies_h(All,Out):- 
+   flies(Flyer,h1), 
+   member(Flyer,Acc), 
+   findall_flies_h(Acc,Out).
+
+findall_flies_h(Acc,Acc).
+
+%%positives
+
+positives([tweety,polly]).

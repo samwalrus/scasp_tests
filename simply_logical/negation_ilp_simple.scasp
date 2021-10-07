@@ -1,0 +1,81 @@
+bird(tweety).            
+bird(polly).
+penguin(pingu).
+has_feathers(tweety).    
+has_beak(polly).
+bird(X):-penguin(X).
+
+flies(X,h0):-true.
+
+flies(X,h1):-bird(X).
+flies(X,h2):-not bird(X).
+
+flies(X,h3):-has_feathers(X).
+flies(X,h4):-not has_feathers(X).
+
+flies(X,h5):-has_beak(X).
+flies(X,h6):-not has_beak(X).
+
+flies(X,h7):-penguin(X).
+flies(X,h8):-not penguin(X).
+
+flies(X,h9):-bird(X),has_feathers(X).
+flies(X,h10):-not bird(X),has_feathers(X).
+flies(X,h11):-bird(X),not has_feathers(X).
+
+flies(X,h12):-bird(X),has_beak(X).
+flies(X,h13):-not bird(X),has_beak(X).
+flies(X,h14):-bird(X),not has_beak(X).
+
+flies(X,h15):-bird(X),penguin(X).
+flies(X,h16):-not bird(X),penguin(X).
+flies(X,h17):-bird(X),not penguin(X).
+
+flies(X,h18):-has_feathers(X),has_beak(X).
+flies(X,h19):-not has_feathers(X),has_beak(X).
+flies(X,h20):-has_feathers(X),not has_beak(X).
+
+flies(X,h21):-has_feathers(X),penguin(X).
+flies(X,h22):-not has_feathers(X),penguin(X).
+flies(X,h23):-has_feathers(X),not penguin(X).
+
+flies(X,h24):-has_beak(X),penguin(X).
+flies(X,h25):-not has_beak(X),penguin(X).
+flies(X,h26):-has_beak(X),not penguin(X).
+
+flies(X,h27):-bird(X),has_feathers(X),has_beak(X).
+flies(X,h28):-not bird(X),has_feathers(X),has_beak(X).
+flies(X,h29):-bird(X),not has_feathers(X),has_beak(X).
+flies(X,h30):-bird(X),has_feathers(X),not has_beak(X).
+flies(X,h31):-not bird(X),not has_feathers(X),has_beak(X).
+flies(X,h32):-bird(X),not has_feathers(X),not has_beak(X).
+flies(X,h32):-not bird(X),has_feathers(X),not has_beak(X).
+
+flies(X,h32):-bird(X),has_feathers(X),penguin(X).
+flies(X,h33):-not bird(X),has_feathers(X),penguin(X).
+flies(X,h34):-bird(X),not has_feathers(X),penguin(X).
+flies(X,h35):-bird(X),has_feathers(X),not penguin(X).
+flies(X,h36):-not bird(X),not has_feathers(X),penguin(X).
+flies(X,h37):-bird(X),not has_feathers(X),not penguin(X).
+flies(X,h38):-not bird(X),has_feathers(X),not penguin(X).
+
+flies(X,h39):-bird(X),penguin(X),has_beak(X).
+flies(X,h40):-not bird(X),penguin(X),has_beak(X).
+flies(X,h41):-bird(X),not penguin(X),has_beak(X).
+flies(X,h42):-bird(X),penguin(X),not has_beak(X).
+flies(X,h43):-not bird(X),not penguin(X),has_beak(X).
+flies(X,h44):-bird(X),not penguin(X),not has_beak(X).
+flies(X,h45):-not bird(X),penguin(X),not has_beak(X).
+
+flies(X,h46):-penguin(X),has_feathers(X),has_beak(X).
+flies(X,h47):-not penguin(X),has_feathers(X),has_beak(X).
+flies(X,h48):-penguin(X),not has_feathers(X),has_beak(X).
+flies(X,h49):-penguin(X),has_feathers(X),not has_beak(X).
+flies(X,h50):-not penguin(X),not has_feathers(X),has_beak(X).
+flies(X,h51):-penguin(X),not has_feathers(X),not has_beak(X).
+flies(X,h51):-not penguin(X),has_feathers(X),not has_beak(X).
+
+
+
+hyp(Hyp):-flies(polly,Hyp),flies(tweety,Hyp), not flies(pingu,Hyp).
+

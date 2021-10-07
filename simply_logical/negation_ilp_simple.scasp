@@ -1,3 +1,6 @@
+%%% Simple example of learning to fly.
+%%% Hype generation currently manually copied from Prolog program hyp_gen.pl
+
 bird(tweety).            
 bird(polly).
 penguin(pingu).
@@ -5,6 +8,8 @@ has_feathers(tweety).
 has_beak(polly).
 bird(X):-penguin(X).
 
+
+%%% these hypes can be made from hyp_gen.pl
 flies(X,h0):-true.
 
 flies(X,h1):-bird(X).
@@ -76,6 +81,6 @@ flies(X,h51):-penguin(X),not has_feathers(X),not has_beak(X).
 flies(X,h51):-not penguin(X),has_feathers(X),not has_beak(X).
 
 
-
-hyp(Hyp):-flies(polly,Hyp),flies(tweety,Hyp), not flies(pingu,Hyp).
+%%% What hypes cover polly, tweety but not pingu?
+%?-hyp(Hyp):-flies(polly,Hyp),flies(tweety,Hyp), not flies(pingu,Hyp).
 

@@ -15,7 +15,8 @@ modeb(has_feathers/1).
 modeb(has_beak/1).
 modeb(has_car/2).
 
-
+test_status(X,pass) :- format("Pass or fail ~w ?\n",[X]), read(yes),!.
+test_status(X,fail) :- format("Pass or fail ~w ?\n",[X]), read(no).
 
 %%%mayb include the numbering of vars in this generation.
 %%% Insure vars form dag of unification.
